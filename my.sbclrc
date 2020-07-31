@@ -1,0 +1,28 @@
+(defmacro sp (x) `(symbol-plist ',x))
+;(unless (member :child-sbcl *features*)
+; (quit
+;  :unix-status
+;  (process-exit-code
+;   (run-program *runtime-pathname*
+;                `("--control-stack-size" "128MB"
+;                  "--noinform" "--disable-ldb" "--lose-on-corruption" "--end-runtime-options"
+;                  "--eval" "(push :child-sbcl *features*)"
+;                  "--script" ,(namestring *load-pathname*))
+;                :output t :error t :input t))))
+;
+;
+
+;;; The following lines added by ql:add-to-init-file:
+#-quicklisp
+(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
+                                       (user-homedir-pathname))))
+  (when (probe-file quicklisp-init)
+    (load quicklisp-init)))
+
+;;; load path for mylib
+(defparameter *MYSBCL* "/Users/shin/lib/lisptools")
+(defun myload (fname)
+  (load (format nil "~a/~a" *MYSBCL* fname))
+)
+
+
