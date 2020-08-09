@@ -28,6 +28,14 @@
 )
 
 (ito-set
+	"about eq,neq of atom or symbol"
+	(intend-eq "eq symbol" :abc :abc)
+	(intend-neq "neq symbol" :abc :ac)
+	(intend-eq "eq atom" 'aaa 'aaa)
+	(intend-neq "neq atom" 'aa 'aaa)
+)
+
+(ito-set
 	 "about plus"
 	 (intend-equal "three1" 3 (+ 1 2 ) )
 	 (intend-equal "three2" 3 (- 4 1 ) )

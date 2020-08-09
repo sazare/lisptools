@@ -33,6 +33,20 @@
      )
   )
 
+(defmacro intend-eq (desc expv form)
+    `(let (val)
+       (setf val ,form)  ;;; eval form just once
+       (report-result ,desc (eq ,expv val) ,expv ',form val)
+     )
+  )
+
+(defmacro intend-neq (desc expv form)
+    `(let (val)
+       (setf val ,form)  ;;; eval form just once
+       (report-result ,desc (not (eq ,expv val)) ,expv ',form val)
+     )
+  )
+
 (defmacro intend-equal (desc expv form)
     `(let (val)
        (setf val ,form)  ;;; eval form just once
