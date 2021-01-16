@@ -61,6 +61,14 @@
      )
   )
 
+(defmacro intend-multiple-equal (desc exps form)
+  `(intend-equal ,desc ',exps (multiple-value-list ,form))
+)
+
+(defmacro intend-multiple-notequal (desc exps form)
+  `(intend-notequal ,desc ',exps (multiple-value-list ,form))
+)
+
 (defmacro intend->(desc form1 form2)
     `(let (val1 val2)
        (setf val1 ,form1)  ;;; eval form just once

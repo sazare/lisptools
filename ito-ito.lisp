@@ -36,6 +36,12 @@
 )
 
 (ito-set
+  "about multiple equl"
+  (intend-multiple-equal "mequal" (1 2 3) (values 1 2 3))
+  (intend-multiple-notequal "mnotequal" (1 2 3) (values 1 3 3))
+)
+
+(ito-set
 	 "about plus"
 	 (intend-equal "three1" 3 (+ 1 2 ) )
 	 (intend-equal "three2" 3 (- 4 1 ) )
@@ -88,12 +94,20 @@
 	 (intend-equal "car is abc3" 'abc (car x))
 	 )
 
+(defito ito-m-v ()
+  "about multiple-equal"
+  (intend-multiple-equal "1 is 1" (1 2 3) (values 1 2 3))
+  (intend-multiple-notequal "1 is 1" (1 2 3) (values 1 5 3))
+)
+
 (defito ito-all ()
 	 (ito-set "ito of defito macros"
 	   (ito-a)
 	   (ito-b)
 	   (ito-car '(abc ss))
-	   ))
+           (ito-m-v)
+	   )
+)
 
 
 (ito-all)
