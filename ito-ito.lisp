@@ -1,5 +1,7 @@
 (load "ito.lisp")
 
+;(in-package :ito)
+
 (ito-set 
 	 "about intend true or false"
 	(intend-t "true" (eq 'a 'a))

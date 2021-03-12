@@ -1,12 +1,36 @@
-;(defpackage :sazare.ito (:use :common-lisp))
-;(in-package :sazare.ito)
-
+;; ito oriented design
+;(in-package :cl-user)
+;
+;(defpackage :ito
+;  (:use :cl)
+;  (:export
+;     :defito 
+;     :intend-skip 
+;     :intend-t 
+;     :intend-f 
+;     :intend-eq 
+;     :intend-neq 
+;     :intend-equal 
+;     :intend-notequal 
+;     :intend-multiple-equal 
+;     :intend-multiple-notequal 
+;     :intend->
+;     :intend->=
+;     :intend-<
+;     :intend-<=
+;     :intend-=
+;     :ito-set
+;     :report-result
+;    )
+; )
+;
+;(in-package :ito)
 
 ;; Intent framework from test framework
 ;; based on the code of ch. 9 of Practical Commonlisp by Peter Seibel.
 ;;  modified it as a novice commonlisper
 
-(defvar *ito-name* nil)
+(defparameter *ito-name* nil)
 
 (defmacro defito (name param desc &body body)
   `(defun ,name ,param
